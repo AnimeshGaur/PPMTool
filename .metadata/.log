@@ -795,3 +795,50 @@ Contains: Missing org.springframework.boot:spring-boot-starter-web-services:jar:
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-09-12 14:12:07.441
 !MESSAGE executing callback sts4.classpath.cBfZtMvP SUCCESS [done]
+
+!ENTRY org.eclipse.jface 2 0 2019-09-12 14:23:07.154
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-12 14:23:07.154
+!MESSAGE A conflict occurred for CTRL+SHIFT+C:
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.springframework.tooling.boot.ls.ToggleComment,Toggle Comment,
+		,
+		Category(org.springframework.ide.eclipse.commands,Spring Generic Text Editor,Spring Language Server Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@a859cad,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+SHIFT+C,
+	ParameterizedCommand(Command(org.eclipse.tm4e.languageconfiguration.togglelinecommentcommand,Toggle Line Comment,
+		,
+		Category(org.eclipse.tm4e.languageconfiguration.category,TM4E Language Configuration,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@18feeec9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-12 14:23:07.154
+!MESSAGE A conflict occurred for CTRL+J:
+Binding(CTRL+J,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.findIncremental,Incremental Find,
+		Incremental find,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@181252db,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+J,
+	ParameterizedCommand(Command(org.moreunit.core.commands.jumpCommand,Jump to Test/Source,
+		Jump to the test or source associated to the current file.,
+		Category(org.moreunit.core.commands.category,MoreUnit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@31fd20f7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+Binding(CTRL+J,
+	ParameterizedCommand(Command(org.moreunit.core.commands.jumpCommand,Jump to Test/Source,
+		Jump to the test or source associated to the current file.,
+		Category(org.moreunit.core.commands.category,MoreUnit,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@31fd20f7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
