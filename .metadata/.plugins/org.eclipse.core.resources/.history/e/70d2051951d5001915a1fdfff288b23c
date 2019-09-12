@@ -1,0 +1,54 @@
+package com.ppm.domain;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "PROJECT")
+public class Project {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@NotBlank(message = "enter projectname")
+	private String projectName;
+	
+	@NotBlank(message = "enter projectIdentifier ")
+	@Size(min = 4 ,max = 5, message = "Please use 4 to 5 character")
+	@Column(updatable = false , unique = true)
+	private String projectIdentifier;
+	private String desciption;
+	private Date startdate;
+	private Date endDate;
+	
+	private Date createdAt;
+	private Date updatedAt;
+	
+	@PrePersist
+	protected void oncreate() {
+		this.createdAt = new Date(); 
+	}
+	
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
+}
