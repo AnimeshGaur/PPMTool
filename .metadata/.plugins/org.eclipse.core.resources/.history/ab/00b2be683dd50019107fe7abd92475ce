@@ -1,0 +1,5 @@
+package com.ppm.domain.repository.copy;
+
+public interface ProjectRepository {
+
+}
