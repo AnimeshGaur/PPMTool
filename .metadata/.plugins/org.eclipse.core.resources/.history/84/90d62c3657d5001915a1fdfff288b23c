@@ -1,0 +1,5 @@
+package com.ppm.domain.execption;
+
+public class Exception {
+
+}

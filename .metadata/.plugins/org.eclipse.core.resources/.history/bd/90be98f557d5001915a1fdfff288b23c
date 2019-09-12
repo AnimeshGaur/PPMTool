@@ -1,7 +1,6 @@
 package com.ppm.domain.controller;
 
 import javax.validation.Valid;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ppm.PpmtoolApplication;
 import com.ppm.domain.Project;
 import com.ppm.domain.service.ProjectService;
 
@@ -33,7 +33,7 @@ public class ProjectController {
 			return new ResponseEntity<Project>(project2, HttpStatus.CREATED);
 			
 		} catch (Exception e) {
-			logger.debug("already exists"+e);
+			logger.debug(e);
 			
 		}
 		return null;

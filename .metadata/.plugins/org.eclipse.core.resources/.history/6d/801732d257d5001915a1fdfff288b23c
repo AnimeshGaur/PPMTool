@@ -1,7 +1,6 @@
 package com.ppm.domain.controller;
 
 import javax.validation.Valid;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,7 @@ import com.ppm.domain.service.ProjectService;
 public class ProjectController {
 
 	Object object;
-	public final  Logger logger = LogManager.getLogger(ProjectController.class);
+	public final static Logger logger = LogManager.getLogger(object.getClass());
 	@Autowired
 	private ProjectService service;
 
@@ -33,10 +32,8 @@ public class ProjectController {
 			return new ResponseEntity<Project>(project2, HttpStatus.CREATED);
 			
 		} catch (Exception e) {
-			logger.debug("already exists"+e);
 			
 		}
-		return null;
 		
 	}
 }
