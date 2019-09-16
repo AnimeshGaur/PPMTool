@@ -1,4 +1,4 @@
-package com.ppm.domain;
+package com.ppm.domain.entity;
 
 import java.util.Date;
 
