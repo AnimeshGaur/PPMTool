@@ -49,7 +49,7 @@ public class ProjectService {
 		project2.setProjectName(project.getProjectName());
 		project2.setEndDate(project.getEndDate());
 		project2.setDesciption(project.getDesciption());
-		project2.setStartdate(project.getStartdate());
+		project2.setStartDate(project.getStartDate());
 		project2.setUpdatedAt(new Date());
 		
 		return projectRepository.save(project2);

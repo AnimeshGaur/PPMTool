@@ -8,12 +8,25 @@ class AddProject extends Component {
       projectIdentifier: "",
       desciption: "",
       startDate: "",
-      endDate : ""
+      endDate: ""
     };
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
 
-  onChange(e){
-      this.setState({projectName:e.target.value});
+  onSubmit(e){
+      e.preventDefault();
+      const newProject  ={
+        projectName: this.state.projectName ,
+        projectIdentifier: this.state.projectIdentifier,
+        desciption: this.state.desciption,
+        startDate: this.state.startDate,
+        endDate: this.state.endDate
+      };
+      console.log(newProject); 
+  }
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
   render() {
     return (
@@ -25,7 +38,7 @@ class AddProject extends Component {
                 Create / Edit Project form
               </h5>
               <hr />
-              <form>
+              <form onSubmit = {this.onSubmit}>
                 <div className="form-group">
                   <input
                     type="text"
@@ -33,7 +46,7 @@ class AddProject extends Component {
                     placeholder="Project Name"
                     name="projectName"
                     value={this.state.projectName}
-                    onChange = {this.onChange.bind(this)}
+                    onChange={this.onChange}
                   />
                 </div>
                 <div className="form-group">
@@ -42,7 +55,8 @@ class AddProject extends Component {
                     className="form-control form-control-lg"
                     placeholder="Unique Project ID"
                     name="projectIdentifier"
-                    value = {this.state.projectIdentifier}
+                    value={this.state.projectIdentifier}
+                    onChange={this.onChange}
                   />
                 </div>
 
@@ -51,7 +65,8 @@ class AddProject extends Component {
                     class="form-control form-control-lg"
                     placeholder="Project Description"
                     name="desciption"
-                    value = {this.state.desciption}
+                    value={this.state.desciption}
+                    onChange={this.onChange}
                   ></textarea>
                 </div>
                 <h6>Start Date</h6>
@@ -60,7 +75,8 @@ class AddProject extends Component {
                     type="date"
                     className="form-control form-control-lg"
                     name="startDate"
-                    value = {this.state.startDate}
+                    value={this.state.startDate}
+                    onChange={this.onChange}
                   />
                 </div>
                 <h6>Estimated End Date</h6>
@@ -69,7 +85,8 @@ class AddProject extends Component {
                     type="date"
                     className="form-control form-control-lg"
                     name="endDate"
-                    value = {this.state.endDate}
+                    value={this.state.endDate}
+                    onChange={this.onChange}
                   />
                 </div>
 
