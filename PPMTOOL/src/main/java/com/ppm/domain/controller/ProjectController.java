@@ -1,7 +1,5 @@
 package com.ppm.domain.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.apache.logging.log4j.LogManager;
@@ -72,9 +70,6 @@ public class ProjectController {
 
 	@RequestMapping(path = "/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Project> updateProject(@Valid @RequestBody Project project) throws BadRequestException {
-
-
-		
 			return new ResponseEntity<Project>(service.Update(project), HttpStatus.CREATED);
 
 	}
