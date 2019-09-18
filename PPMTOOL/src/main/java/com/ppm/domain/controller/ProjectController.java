@@ -41,7 +41,7 @@ public class ProjectController {
 	}
 
 	@RequestMapping(path = "/id/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Project> getProjectById(@PathVariable String id) {
+	public ResponseEntity<Project> getProjectById(@Valid @PathVariable String id) {
 
 		Project project2 = service.getProjectById(id);
 		return new ResponseEntity<Project>(project2, HttpStatus.CREATED);
@@ -49,13 +49,12 @@ public class ProjectController {
 	}
 	@RequestMapping(path = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> getAllProject() {
-
 		return new ResponseEntity<Object>( service.getAllProject(), HttpStatus.CREATED);
 
 	}
 	
 	@RequestMapping(path = "/id/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public String deleteProjectById(@PathVariable String id) {
+	public String deleteProjectById(@Valid @PathVariable String id) {
 
 		try {
 			service.deleteProjectById(id);
