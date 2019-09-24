@@ -15,33 +15,32 @@ public class ProjectService {
 	@Autowired
 	private ProjectRepository projectRepository;
 
-	
 	public Project SaveOrUpdate(Project project) {
-		
+
 		return projectRepository.save(project);
 	}
 
 	public Project getProjectById(String id) {
-		
+
 		return projectRepository.findAllByProjectIdentifier(id);
 	}
 
 	public Object getAllProject() {
-	
+
 		return projectRepository.findAll();
 	}
 
 	public void deleteProjectById(String id) throws BadRequestException {
-		
+
 		Project project = projectRepository.findAllByProjectIdentifier(id);
-		if (project == null ) {
+		if (project == null) {
 			throw new BadRequestException("project with id not exists  == " + id);
 		}
-		 projectRepository.delete(project);
+		projectRepository.delete(project);
 	}
 
 	public Project Update(Project project) throws BadRequestException {
-		Project project2 = projectRepository.findAllByProjectIdentifier(project.getProjectIdentifier()); 
+		Project project2 = projectRepository.findAllByProjectIdentifier(project.getProjectIdentifier());
 		if (project2 == null) {
 			throw new BadRequestException("please enter valid project Identifier");
 		}
@@ -50,9 +49,10 @@ public class ProjectService {
 		project2.setEndDate(project.getEndDate());
 		project2.setDesciption(project.getDesciption());
 		project2.setStartDate(project.getStartDate());
+		project2.setStartDate(project.getStartDate());
 		project2.setUpdatedAt(new Date());
-		
+
 		return projectRepository.save(project2);
-		
+
 	}
 }

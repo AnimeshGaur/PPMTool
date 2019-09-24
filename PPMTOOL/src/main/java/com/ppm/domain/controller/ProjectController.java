@@ -22,7 +22,7 @@ import com.ppm.domain.service.ProjectService;
 @RequestMapping("/api/project")
 public class ProjectController {
 
-	Object object;
+	 
 	public final Logger logger = LogManager.getLogger(ProjectController.class);
 	@Autowired
 	private ProjectService service;
@@ -40,19 +40,33 @@ public class ProjectController {
 		return null;
 	}
 
+	@RequestMapping(path = "/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Project> updateProject(@Valid @RequestBody Project project) {
+
+		try {
+			Project project2 = service.Update(project);
+			return new ResponseEntity<Project>(service.Update(project2), HttpStatus.OK);
+
+		} catch (Exception e) {
+			logger.info("already exists" + e);
+		}
+		return null;
+	}
+
 	@RequestMapping(path = "/id/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Project> getProjectById(@Valid @PathVariable String id) {
 
 		Project project2 = service.getProjectById(id);
-		return new ResponseEntity<Project>(project2, HttpStatus.CREATED);
+		return new ResponseEntity<Project>(project2, HttpStatus.OK);
 
 	}
+
 	@RequestMapping(path = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> getAllProject() {
-		return new ResponseEntity<Object>( service.getAllProject(), HttpStatus.CREATED);
+		return new ResponseEntity<Object>(service.getAllProject(), HttpStatus.CREATED);
 
 	}
-	
+
 	@RequestMapping(path = "/id/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public String deleteProjectById(@Valid @PathVariable String id) {
 
@@ -60,16 +74,11 @@ public class ProjectController {
 			service.deleteProjectById(id);
 			return " project deleted sucessfully";
 		} catch (BadRequestException e) {
-			
-			logger.info("project with id not exists " + id );
+
+			logger.info("project with id not exists " + id);
 		}
 		return id;
 
 	}
 
-	@RequestMapping(path = "/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Project> updateProject(@Valid @RequestBody Project project) throws BadRequestException {
-			return new ResponseEntity<Project>(service.Update(project), HttpStatus.CREATED);
-
-	}
 }

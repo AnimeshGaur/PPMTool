@@ -15,14 +15,16 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 @Table(name = "PROJECT")
 public class Project {
 
